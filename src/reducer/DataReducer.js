@@ -76,11 +76,11 @@ export const DataReducer = (state, action) => {
                     upvotes:
                       action.payload.voteType === "up"
                         ? post.upvotes + 1
-                        : post.upvotes - 1,
+                        : post.upvotes,
                     downvotes:
                       action.payload.voteType === "down"
-                        ? post.downvotes - 1
-                        : post.downvotes + 1,
+                        ? post.downvotes + 1
+                        : post.downvotes,
                   }
                 : post;
             }),

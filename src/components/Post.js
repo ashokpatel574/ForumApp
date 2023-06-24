@@ -32,6 +32,7 @@ const Post = ({ postState }) => {
   };
 
   const votesHandler = (postId, votesStatus) => {
+    console.log(1);
     dispatch({
       type: "Votes",
       payload: {
@@ -55,14 +56,14 @@ const Post = ({ postState }) => {
       <div className="postItem_votes-container">
         <span
           className={`postItem_upVotes-Icon ${count > 0 && "postive"}`}
-          onClick={(e) => votesHandler(e, postId, "up")}
+          onClick={() => votesHandler(postId, "up")}
         >
           <ArrowDropUpIcon />
         </span>
         <span className="postItem_votes-count">{count}</span>
         <span
           className={`postItem_downVotes-Icon ${count < 0 && "negative"}`}
-          onClick={(e) => votesHandler(e, postId, "down")}
+          onClick={() => votesHandler(postId, "down")}
         >
           <ArrowDropDownIcon />
         </span>
@@ -101,13 +102,13 @@ const Post = ({ postState }) => {
         <div className="postItem_btnContainer">
           <span
             className="postItem-comments"
-            onClick={(e) => postCommentsHandler(e, postId)}
+            onClick={() => postCommentsHandler(postId)}
           >
             <ChatBubbleOutlineIcon />
           </span>
           <span
             className="postItem-bookmarks"
-            onClick={(e) => bookmarkshandler(e, postId)}
+            onClick={() => bookmarkshandler(postId)}
           >
             {isBookmarked ? <BookmarkIcon /> : <BookmarkBorderIcon />}
           </span>
