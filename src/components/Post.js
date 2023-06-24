@@ -26,14 +26,12 @@ const Post = ({ postState }) => {
 
   const navigate = useNavigate();
 
-  const postCommentsHandler = (e, postId) => {
-    e.stopPropagation();
+  const postCommentsHandler = (postId) => {
     dispatch({ type: "User_Post_Display", payload: postState });
     navigate(`/post/${postId}`);
   };
 
-  const votesHandler = (e, postId, votesStatus) => {
-    e.stopPropagation();
+  const votesHandler = (postId, votesStatus) => {
     dispatch({
       type: "Votes",
       payload: {
@@ -43,8 +41,7 @@ const Post = ({ postState }) => {
     });
   };
 
-  const bookmarkshandler = (e, postId) => {
-    e.stopPropagation();
+  const bookmarkshandler = (postId) => {
     dispatch({
       type: "Bookmarks",
       payload: postId,
