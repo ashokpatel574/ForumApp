@@ -15,7 +15,6 @@ const Post = ({ postState }) => {
     picUrl,
     post,
     username,
-    name,
     postDescription,
     upvotes,
     downvotes,

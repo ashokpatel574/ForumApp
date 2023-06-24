@@ -390,3 +390,14 @@ header {
 .sideBar-profile-Infocontainer span {
   font-size: 1.8rem;
 }
+
+.lastesPostSort {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.lastesPostSort svg {
+  font-size: 2.8rem;
+}

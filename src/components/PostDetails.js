@@ -6,6 +6,7 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { useData } from "../context/DataContext";
 import { useNavigate } from "react-router";
+import { timeAgo } from "../utils";
 
 const PostDetails = () => {
   const {
@@ -44,7 +45,7 @@ const PostDetails = () => {
                 <div className="userComments-header-partOne">
                   <span className="userComments-name">{commentItem?.name}</span>
                   <span>@{commentItem?.username}</span>
-                  <span>{commentItem?.createdAt}</span>
+                  <span>{timeAgo(commentItem?.createdAt)}</span>
                 </div>
                 <div className="userComments-header-partTwo">
                   <span>Replying to @{username}</span>

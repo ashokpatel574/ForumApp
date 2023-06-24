@@ -5,6 +5,7 @@ import { forumData } from "../constant";
 export const initialState = {
   user: forumData,
   userPost: {},
+  latestpostUpSorted: false,
 };
 
 export const DataReducer = (state, action) => {
@@ -19,10 +20,13 @@ export const DataReducer = (state, action) => {
     case "latestSort": {
       return {
         ...state,
+        latestpostUpSorted: !state.latestpostUpSorted,
         user: {
           ...state.user,
           posts: state.user.posts.sort((a, b) => {
-            return Date.parse(b.createdAt) - Date.parse(a.createdAt);
+            return action.payload === "up"
+              ? Date.parse(b.createdAt) - Date.parse(a.createdAt)
+              : Date.parse(a.createdAt) - Date.parse(b.createdAt);
           }),
         },
       };
